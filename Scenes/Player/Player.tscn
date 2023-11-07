@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://cnejyw5avr2x8"]
+
+[ext_resource type="Texture2D" uid="uid://t35pdlg83vkq" path="res://Assets/DungeonTileset.png" id="1_5ihw6"]
+[ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_rjyak"]
+[ext_resource type="PackedScene" uid="uid://cu1a4qebmi6mg" path="res://Scenes/Controllers/BasicAbilityController/BasicAbilityController.tscn" id="2_snc4g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xki3b"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1sn6"]
+atlas = ExtResource("1_5ihw6")
+region = Rect2(512, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5ttd"]
+atlas = ExtResource("1_5ihw6")
+region = Rect2(528, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbg4g"]
+atlas = ExtResource("1_5ihw6")
+region = Rect2(560, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfo0f"]
+atlas = ExtResource("1_5ihw6")
+region = Rect2(576, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkw7h"]
+atlas = ExtResource("1_5ihw6")
+region = Rect2(592, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_656s3"]
+atlas = ExtResource("1_5ihw6")
+region = Rect2(608, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6yl0"]
+atlas = ExtResource("1_5ihw6")
+region = Rect2(624, 96, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nifyg"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_w1sn6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_w5ttd")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_w1sn6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_kbg4g")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfo0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkw7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_656s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6yl0")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 12.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+motion_mode = 1
+script = ExtResource("1_rjyak")
+Speed = 75
+
+[node name="AbilityController" type="Node" parent="."]
+
+[node name="BasicAbilityController" parent="AbilityController" instance=ExtResource("2_snc4g")]
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_xki3b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nifyg")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 3
+frame_progress = 0.867788
+offset = Vector2(0, -8)

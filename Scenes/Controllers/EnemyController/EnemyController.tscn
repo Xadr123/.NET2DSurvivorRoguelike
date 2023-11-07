@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cssidpj8rbvt8"]
+
+[ext_resource type="Script" path="res://Scenes/Controllers/EnemyController/EnemyController.cs" id="1_qf2dy"]
+[ext_resource type="PackedScene" uid="uid://cucuo2xvqaf1a" path="res://Scenes/Enemies/BabyGoblin/BabyGoblin.tscn" id="2_wpa7y"]
+
+[node name="EnemyController" type="Node"]
+script = ExtResource("1_qf2dy")
+BabyGoblin = ExtResource("2_wpa7y")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

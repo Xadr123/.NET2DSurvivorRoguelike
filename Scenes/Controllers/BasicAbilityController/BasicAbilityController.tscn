@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu1a4qebmi6mg"]
+
+[ext_resource type="Script" path="res://Scenes/Controllers/BasicAbilityController/BasicAbilityController.cs" id="1_tye7c"]
+[ext_resource type="PackedScene" uid="uid://8t5nxorosq1s" path="res://Scenes/Abilities/BasicAbility.tscn" id="2_kh6pf"]
+
+[node name="BasicAbilityController" type="Node"]
+script = ExtResource("1_tye7c")
+BasicAbility = ExtResource("2_kh6pf")
+
+[node name="AbilityTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

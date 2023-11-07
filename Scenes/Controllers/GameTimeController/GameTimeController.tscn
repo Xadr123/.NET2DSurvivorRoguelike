@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bnkct6rmr6xx"]
+
+[node name="GameTimeController" type="Node"]
+
+[node name="GameTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 120.0
+one_shot = true
+autostart = true
