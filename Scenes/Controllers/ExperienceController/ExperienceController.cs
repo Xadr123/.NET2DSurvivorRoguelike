@@ -20,6 +20,5 @@ public partial class ExperienceController : Node
     {
         IncrementExperience(1);
         GD.Print(currentExperience);
-        
     }
 }

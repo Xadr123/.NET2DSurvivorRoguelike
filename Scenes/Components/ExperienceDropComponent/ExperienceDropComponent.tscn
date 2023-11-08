@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://e8g3rlg2s6gh"]
+
+[ext_resource type="Script" path="res://Scenes/Components/ExperienceDropComponent/ExperienceDropComponent.cs" id="1_0dere"]
+[ext_resource type="PackedScene" uid="uid://bwia310ukgtbq" path="res://Scenes/GameObjects/ExperienceVial/ExperienceVial.tscn" id="2_3dg1g"]
+
+[node name="ExperienceDropComponent" type="Node"]
+script = ExtResource("1_0dere")
+ExperienceVial = ExtResource("2_3dg1g")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cab2dsow82o5u"]
+[gd_scene load_steps=10 format=3 uid="uid://cab2dsow82o5u"]
 
 [ext_resource type="Texture2D" uid="uid://t35pdlg83vkq" path="res://Assets/DungeonTileset.png" id="1_3yvx8"]
 [ext_resource type="PackedScene" uid="uid://bnkct6rmr6xx" path="res://Scenes/Controllers/GameTimeController/GameTimeController.tscn" id="1_6oa6d"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cnejyw5avr2x8" path="res://Scenes/Player/Player.tscn" id="2_iiuxa"]
 [ext_resource type="PackedScene" uid="uid://hhppnxjiup0" path="res://Scenes/ui/GameTimeUI/GameTimeUI.tscn" id="2_sraiv"]
 [ext_resource type="PackedScene" uid="uid://o8sdh452tsmr" path="res://Scenes/Controllers/ExperienceController/ExperienceController.tscn" id="3_gk7yf"]
-[ext_resource type="PackedScene" uid="uid://bwia310ukgtbq" path="res://Scenes/GameObjects/ExperienceVial/ExperienceVial.tscn" id="7_rm4s3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0b1p8"]
 resource_name = "Tileset"
@@ -344,21 +343,3 @@ layer_1/tile_data = PackedInt32Array(1966080, 327680, 13, 2031616, 65536, 1, 196
 
 [node name="Player" parent="." instance=ExtResource("2_iiuxa")]
 position = Vector2(103, 87)
-
-[node name="ExperienceVial" parent="." instance=ExtResource("7_rm4s3")]
-position = Vector2(391, 107)
-
-[node name="ExperienceVial2" parent="." instance=ExtResource("7_rm4s3")]
-position = Vector2(277, 173)
-
-[node name="ExperienceVial3" parent="." instance=ExtResource("7_rm4s3")]
-position = Vector2(280, 89)
-
-[node name="ExperienceVial4" parent="." instance=ExtResource("7_rm4s3")]
-position = Vector2(150, 188)
-
-[node name="ExperienceVial5" parent="." instance=ExtResource("7_rm4s3")]
-position = Vector2(309, 270)
-
-[node name="ExperienceVial6" parent="." instance=ExtResource("7_rm4s3")]
-position = Vector2(421, 208)

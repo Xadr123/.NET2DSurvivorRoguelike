@@ -3,7 +3,7 @@ using System;
 
 public partial class GameEvents : Node
 {
-     [Signal]
+    [Signal]
     public delegate void ExperienceVialCollectedEventHandler(float number);
 
     public static GameEvents Instance { get; private set; }

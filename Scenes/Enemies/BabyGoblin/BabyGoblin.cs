@@ -3,48 +3,60 @@ using System;
 
 public partial class BabyGoblin : CharacterBody2D
 {
+	[Export]
+	private int Speed { get; set; }
+
     [Export]
-    private int Speed { get; set; }
+    PackedScene ExperienceVial;
 
-    public override void _Ready()
-    {
-        Area2D hitBox = GetNode<Area2D>("Area2D");
+    HealthComponent HealthComponent;
 
-        hitBox.AreaEntered += OnHit;
-    }
+	public override void _Ready()
+	{
+		Area2D hitBox = GetNode<Area2D>("Area2D");
+
+		hitBox.AreaEntered += OnHit;
+	}
 
    	public void GetPlayerDirection()
 	{
 		var playerNode = GetTree().GetFirstNodeInGroup("Player") as Node2D;
-        var playerDirection = (playerNode.GlobalPosition - GlobalPosition).Normalized();
+		var playerDirection = (playerNode.GlobalPosition - GlobalPosition).Normalized();
 		
-        if (playerNode == null)
+		if (playerNode == null)
 		{
-            return;
+			return;
 		}
 		
-        Velocity = playerDirection * Speed;
+		Velocity = playerDirection * Speed;
 	}
 
 	public void FlipAnimation()
-    {
-        AnimatedSprite2D animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-        
-        if (Velocity.X != 0)
-        {
-            animation.FlipH = Velocity.X < 0;
-        }
-    }
+	{
+		AnimatedSprite2D animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		
+		if (Velocity.X != 0)
+		{
+			animation.FlipH = Velocity.X < 0;
+		}
+	}
 
-    public override void _Process(double delta)
-    {
-        GetPlayerDirection();
-        MoveAndSlide();
-        FlipAnimation();
-    }
-    
-    public void OnHit(Area2D area)
-    {
+	public void OnHit(Area2D area)
+	{
+		GD.Print("Hit");
+        // HealthComponent.DealDamage(10);
+
+        var expVial = ExperienceVial.Instantiate() as Node2D;
+
+        GetParent().AddChild(expVial);
+        expVial.GlobalPosition = GlobalPosition;
         QueueFree();
-    }
+        
+	}
+	public override void _Process(double delta)
+	{
+		GetPlayerDirection();
+		MoveAndSlide();
+		FlipAnimation();
+	}
 }
