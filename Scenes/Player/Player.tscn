@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnejyw5avr2x8"]
+[gd_scene load_steps=14 format=3 uid="uid://cnejyw5avr2x8"]
 
 [ext_resource type="Texture2D" uid="uid://t35pdlg83vkq" path="res://Assets/DungeonTileset.png" id="1_5ihw6"]
 [ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_rjyak"]
 [ext_resource type="PackedScene" uid="uid://cu1a4qebmi6mg" path="res://Scenes/Controllers/BasicAbilityController/BasicAbilityController.tscn" id="2_snc4g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4lkmq"]
+radius = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xki3b"]
 radius = 6.0
@@ -81,6 +84,14 @@ Speed = 75
 [node name="AbilityController" type="Node" parent="."]
 
 [node name="BasicAbilityController" parent="AbilityController" instance=ExtResource("2_snc4g")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_4lkmq")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)

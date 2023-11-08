@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://o8sdh452tsmr"]
+
+[ext_resource type="Script" path="res://Scenes/Controllers/ExperienceController/ExperienceController.cs" id="1_l2gar"]
+
+[node name="ExperienceController" type="Node"]
+script = ExtResource("1_l2gar")

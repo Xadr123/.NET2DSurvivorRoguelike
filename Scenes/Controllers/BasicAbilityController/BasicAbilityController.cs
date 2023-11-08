@@ -27,30 +27,29 @@ public partial class BasicAbilityController : Node
 
         var enemyNodes = GetTree().GetNodesInGroup("Enemy");
 
-		if (enemyNodes.Count == 0)
-		{
-			return;
-		}
+        if (enemyNodes.Count == 0)
+        {
+            return;
+        }
 
-		var distanceSorted = from Node2D enemy in enemyNodes
-			let distance = enemy.GlobalPosition.DistanceSquaredTo(playerNode.GlobalPosition)
-			orderby distance
-			select enemy;
-		
-		
-		var target = distanceSorted.ToArray()[0];
+        var distanceSorted = from Node2D enemy in enemyNodes
+                             let distance = enemy.GlobalPosition.DistanceSquaredTo(playerNode.GlobalPosition)
+                             orderby distance
+                             select enemy;
 
-        if (target.GlobalPosition.DistanceSquaredTo(playerNode.GlobalPosition) < Mathf.Pow(Range, 2))
-		{
 
-        var basicAbilityScene = BasicAbility.Instantiate() as Node2D;
+        var target = distanceSorted.ToArray()[0];
 
-        playerNode.AddChild(basicAbilityScene);
-        basicAbilityScene.GlobalPosition = target.GlobalPosition;
+        if (target.GlobalPosition.DistanceSquaredTo(playerNode.GlobalPosition) <= Mathf.Pow(Range, 2))
+        {
+            var basicAbilityScene = BasicAbility.Instantiate() as Node2D;
 
-        var targetDirection = target.GlobalPosition - playerNode.GlobalPosition;
+            playerNode.AddChild(basicAbilityScene);
+            basicAbilityScene.GlobalPosition = target.GlobalPosition;
 
-        basicAbilityScene.Rotation = targetDirection.Angle();
+            var targetDirection = target.GlobalPosition - playerNode.GlobalPosition;
+
+            basicAbilityScene.Rotation = targetDirection.Angle();
         }
     }
 }
