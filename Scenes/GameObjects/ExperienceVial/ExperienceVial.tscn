@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scenes/GameObjects/ExperienceVial/ExperienceVial.cs" id="1_7ml5v"]
 [ext_resource type="Texture2D" uid="uid://doxxb483ap7yj" path="res://Scenes/GameObjects/ExperienceVial/ExperienceVial.png" id="2_lv0oc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v3fp6"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdmyi"]
+radius = 4.0
+height = 14.0
 
 [node name="ExperienceVial" type="Node2D"]
 script = ExtResource("1_7ml5v")
@@ -14,7 +15,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_v3fp6")
+shape = SubResource("CapsuleShape2D_gdmyi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_lv0oc")

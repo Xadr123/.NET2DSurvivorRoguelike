@@ -9,8 +9,6 @@ public partial class BabyGoblin : CharacterBody2D
     [Export]
     PackedScene ExperienceVial;
 
-    HealthComponent HealthComponent;
-
 	public override void _Ready()
 	{
 		Area2D hitBox = GetNode<Area2D>("Area2D");
@@ -44,7 +42,6 @@ public partial class BabyGoblin : CharacterBody2D
 	public void OnHit(Area2D area)
 	{
 		GD.Print("Hit");
-        // HealthComponent.DealDamage(10);
 
         var expVial = ExperienceVial.Instantiate() as Node2D;
 

@@ -40,16 +40,13 @@ public partial class BasicAbilityController : Node
 
         var target = distanceSorted.ToArray()[0];
 
-        if (target.GlobalPosition.DistanceSquaredTo(playerNode.GlobalPosition) <= Mathf.Pow(Range, 2))
-        {
             var basicAbilityScene = BasicAbility.Instantiate() as Node2D;
 
-            playerNode.AddChild(basicAbilityScene);
-            basicAbilityScene.GlobalPosition = target.GlobalPosition;
+            playerNode.GetParent().AddChild(basicAbilityScene);
+            basicAbilityScene.GlobalPosition = playerNode.GlobalPosition;
 
             var targetDirection = target.GlobalPosition - playerNode.GlobalPosition;
 
             basicAbilityScene.Rotation = targetDirection.Angle();
-        }
     }
 }

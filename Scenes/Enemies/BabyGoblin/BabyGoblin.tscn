@@ -1,10 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cucuo2xvqaf1a"]
+[gd_scene load_steps=11 format=3 uid="uid://cucuo2xvqaf1a"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/BabyGoblin/BabyGoblin.cs" id="1_egm1x"]
-[ext_resource type="PackedScene" uid="uid://di3nk0pavdqx3" path="res://Scenes/Components/HealthComponent/HealthComponent.tscn" id="2_jeqv3"]
 [ext_resource type="PackedScene" uid="uid://bwia310ukgtbq" path="res://Scenes/GameObjects/ExperienceVial/ExperienceVial.tscn" id="2_kdqpo"]
 [ext_resource type="Texture2D" uid="uid://t35pdlg83vkq" path="res://Assets/DungeonTileset.png" id="2_x28sp"]
-[ext_resource type="PackedScene" uid="uid://e8g3rlg2s6gh" path="res://Scenes/Components/ExperienceDropComponent/ExperienceDropComponent.tscn" id="3_xvcju"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h13lu"]
 radius = 9.0
@@ -55,11 +53,6 @@ motion_mode = 1
 script = ExtResource("1_egm1x")
 Speed = 50
 ExperienceVial = ExtResource("2_kdqpo")
-
-[node name="HealthComponent" parent="." instance=ExtResource("2_jeqv3")]
-
-[node name="ExperienceDropComponent" parent="." node_paths=PackedStringArray("HealthComponent") instance=ExtResource("3_xvcju")]
-HealthComponent = NodePath("../HealthComponent")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
