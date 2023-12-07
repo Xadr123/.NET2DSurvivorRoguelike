@@ -5,6 +5,15 @@ public partial class Player : CharacterBody2D
 {
     [Export]
     private int Speed { get; set; }
+    [Export]
+    AnimatedSprite2D Animation { get; set; }
+
+    public override void _Process(double delta)
+    {
+        GetInput();
+        SetAnimation();
+        MoveAndSlide();
+    }
 
     public void GetInput()
     {
@@ -14,25 +23,17 @@ public partial class Player : CharacterBody2D
 
     public void SetAnimation()
     {
-        AnimatedSprite2D animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         
         if (Velocity.X != 0)
         {
-            animation.FlipH = Velocity.X < 0;
+            Animation.FlipH = Velocity.X < 0;
         }
 
         if (Velocity.X == 0 & Velocity.Y == 0)
         {
-            animation.Animation = "Idle";
+            Animation.Animation = "Idle";
         } else {
-            animation.Animation = "Run";
+            Animation.Animation = "Run";
         }
-    }
-
-    public override void _Process(double delta)
-    {
-        GetInput();
-        MoveAndSlide();
-        SetAnimation();
     }
 }

@@ -6,13 +6,18 @@ public partial class BabyGoblin : CharacterBody2D
 	[Export]
 	private int Speed { get; set; }
 
+	[Export]
+	AnimatedSprite2D Animation { get; set; }
+
+	[Export]
+	Area2D Hitbox { get; set; }
+
     [Export]
     PackedScene ExperienceVial;
 
 	public override void _Ready()
 	{
-		Area2D hitBox = GetNode<Area2D>("Area2D");
-
+		Area2D hitBox = Hitbox;
 		hitBox.AreaEntered += OnHit;
 	}
 
@@ -31,11 +36,10 @@ public partial class BabyGoblin : CharacterBody2D
 
 	public void FlipAnimation()
 	{
-		AnimatedSprite2D animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		
 		if (Velocity.X != 0)
 		{
-			animation.FlipH = Velocity.X < 0;
+			Animation.FlipH = Velocity.X < 0;
 		}
 	}
 
@@ -48,7 +52,6 @@ public partial class BabyGoblin : CharacterBody2D
         GetParent().AddChild(expVial);
         expVial.GlobalPosition = GlobalPosition;
         QueueFree();
-        
 	}
 	public override void _Process(double delta)
 	{
